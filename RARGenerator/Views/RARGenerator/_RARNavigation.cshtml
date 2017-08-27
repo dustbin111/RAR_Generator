@@ -1,0 +1,29 @@
+﻿@using RARGenerator.Models;
+
+@*@{ 
+    var viewModel = new SessionViewModel();
+    // Check and see if something is in memory
+    //if (HttpContext.Current.Session["RAR"] != null)
+    //{
+    //    viewModel = (SessionViewModel)HttpContext.Current.Session["RAR"];
+    //}
+}*@
+
+
+<p>
+    NAVIGATION:
+</p>
+<ul>
+    <li>@Html.ActionLink("Warning Notification", "WarningBanner", "RARGenerator") @*@viewModel.WarningBanner.WarningBannerConsent()*@</li>
+    <li>@Html.ActionLink("Start", "NewOrUpload", "RARGenerator") </li>
+    <li>@Html.ActionLink("Facility Information", "Facility", "RARGenerator") </li>
+    <li>@Html.ActionLink("Assessment Scope", "RARScope", "RARGenerator") </li>
+    <li>@Html.ActionLink("System Identification", "System", "RARGenerator") </li>
+    <li>@Html.ActionLink("Threat Identification", "Threats", "RARGenerator") </li>
+    <li>Risk Evaluation</li>
+    <li>@Html.ActionLink("Review & Analysis", "ReviewAnalysis", "RARGenerator") </li>
+    <li>@Html.ActionLink("Generate RAR", "GenerateRAR", "RARGenerator") </li>
+</ul>
+
+
+

@@ -1,0 +1,88 @@
+﻿@model RARGenerator.Models.WarningBanner
+
+@{
+    ViewBag.Title = "WarningBanner";
+    Layout = "~/Views/Shared/_RARGeneratorLayout.cshtml";
+}
+
+<h2>Warning Notice</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Use of this system means you understand and consent to the following:</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.WarningGovt, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.WarningGovt)
+                    @Html.ValidationMessageFor(model => model.WarningGovt, "", new { @class = "text-danger" })
+                    <p>This is NOT a government system.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.WarningAccreditted, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.WarningAccreditted)
+                    @Html.ValidationMessageFor(model => model.WarningAccreditted, "", new { @class = "text-danger" })
+                    <p>This system is NOT acrredited by anyone.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.WarningClassified, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.WarningClassified)
+                    @Html.ValidationMessageFor(model => model.WarningClassified, "", new { @class = "text-danger" })
+                    <p>UNDER NO CIRCUMSTANCES SHOULD CLASSIFIED INFORMATION BE PROCESSED THROUGH THIS SYSTEM</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.WarningStored, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.WarningStored)
+                    @Html.ValidationMessageFor(model => model.WarningStored, "", new { @class = "text-danger" })
+                    <p>Information input into this system is NOT stored on this system; any information you want to save must be saved locally to your computer.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.WarningUse, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.WarningUse)
+                    @Html.ValidationMessageFor(model => model.WarningUse, "", new { @class = "text-danger" })
+                    <p>Use of the RAR Generator is USE AT YOUR OWN RISK.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+@*<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>*@
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

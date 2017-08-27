@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>RAR Generator</h1>
+    <p class="lead">This site is an automated means of creating a Risk Assessment Report that conforms to DSS requirements and NIST 800-37.</p>
+    <p><a href="@Url.Action("WarningBanner", "RARGenerator")" class="btn btn-primary btn-lg">Get Started &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Risk Assessments</h2>
+        <p>
+            <i>
+                "With the increasing breadth and depth of cyber attacks on federal information systems
+                and the U.S. critical infrastructure, risk assessments provide important information to
+                guide and inform the selection of appropriate defensive measures so organizations can
+                respond effectively to cyber-related risks."
+            </i>
+            <br />
+            &nbsp;
+            ~Ron Ross, NIST Fellow
+        </p>
+        <p><a class="btn btn-default" href="https://www.nist.gov/news-events/news/2012/09/new-nist-publication-provides-guidance-computer-security-risk-assessments">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>NIST 800-30</h2>
+        <p>
+            NIST 800-30, the Guide for Conducting Risk Assessments, provides a step-by-step process
+            for how to prepare for risk assessments, conduct risk assessments, and communicate results 
+            to key organizational personnel. 
+        </p>
+        <p><a class="btn btn-default" href="https://www.nist.gov/publications/guide-conducting-risk-assessments">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>DSS RMF</h2>
+        <p>
+            The DSS RMF is promulgated in the DSS Assessments and Authorization Process Manual (DAAPM)
+            providing guidance, templates, security controls, System Security Plan (SSP) Templates and
+            other artifacts necessary for the RMF transition and necessary to meeting mandated 
+            implementation timelines. 
+        </p>
+        <p><a class="btn btn-default" href="http://www.dss.mil/rmf/">Learn more &raquo;</a></p>
+    </div>
+</div>
