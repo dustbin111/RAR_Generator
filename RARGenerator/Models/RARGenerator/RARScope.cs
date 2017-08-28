@@ -11,7 +11,7 @@ namespace RARGenerator.Models
         [Required]
         public string RARPurpose { get; set; }
         [Required]
-        public string RARAssumptions { get; set; }
+        public string RAScope { get; set; }
         [Required]
         public string RARConstraints { get; set; }
         [Required]

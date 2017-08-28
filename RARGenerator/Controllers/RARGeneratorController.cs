@@ -31,19 +31,31 @@ namespace RARGenerator.Controllers
         // GET: RARGenerator/Facility
         public ActionResult Facility()
         {
-            return View();
+            
+            return View(GetViewModel().Facility);
+        }
+
+        // POST: RARGenerator/Facility
+        [HttpPost]
+        public ActionResult Facility(Facility facility, string direction)
+        {
+            SessionViewModel viewModel = GetViewModel();
+
+            viewModel.Facility = facility;
+            Session["RAR"] = viewModel;
+            if (!string.IsNullOrEmpty(direction))
+            {
+                return RedirectToAction(direction);
+            }
+
+            return View(viewModel.Facility);
         }
 
         // GET: RARGenerator/WarningBanner
         public ActionResult WarningBanner()
         {
             // Creates local variable of viewModel
-            SessionViewModel viewModel = new SessionViewModel();
-            
-            // Check and see if something is in memory
-            if (Session["RAR"] != null) {
-                viewModel = (SessionViewModel)Session["RAR"];
-            }
+            SessionViewModel viewModel = GetViewModel();
             return View(viewModel.WarningBanner);
         }
 
@@ -51,13 +63,7 @@ namespace RARGenerator.Controllers
         [HttpPost]
         public ActionResult WarningBanner(WarningBanner warningBanner)
         {
-            SessionViewModel viewModel = new SessionViewModel();
-            
-            // Check and see if something is in memory
-            if (Session["RAR"] != null)
-            {
-                viewModel = (SessionViewModel)Session["RAR"];
-            }
+            SessionViewModel viewModel = GetViewModel();
 
             viewModel.WarningBanner = warningBanner;
             Session["RAR"] = viewModel;
@@ -172,6 +178,19 @@ namespace RARGenerator.Controllers
             {
                 return View();
             }
+        }
+
+        public SessionViewModel GetViewModel()
+        {
+            var viewModel = new SessionViewModel();
+            
+            // Check and see if something is in memory
+            if (Session["RAR"] != null)
+            {
+                viewModel = (SessionViewModel)Session["RAR"];
+            }
+
+            return viewModel;
         }
     }
 }

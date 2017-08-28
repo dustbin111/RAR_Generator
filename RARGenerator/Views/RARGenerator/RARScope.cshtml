@@ -13,26 +13,60 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>This section if for filling in the Purpose, Assumption, Contraints, etc.</h4>
+        <h4>This section describes the scope of the Risk Assessment; the Purpose, Assumption, Contraints, etc.</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        
         <div class="form-group">
-            @Html.LabelFor(model => model.RARPurpose, htmlAttributes: new { @class = "control-label col-md-2" })
+            @*@Html.LabelFor(model => model.RARAssumptions, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2">
+                Scope
+            </label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.RAScope, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.RAScope, "", new { @class = "text-danger" })
+                <br />
+                Identify assessment assumptions, constraints, and timeframe.
+                <br />
+                <br />
+                <b>Example:</b> <i>
+                The scope of this risk assessment is focused on the system’s use of resources and controls
+                to mitigate vulnerabilities exploitable by threat agents (internal and external) identified during the RMF
+                control selection process based on the system’s categorization.
+                <br />
+                <br />
+                This initial assessment will be a Tier 3 or “information system level” risk assessment.  While not entirely
+                comprehensive of all threats and vulnerabilities to the system, this assessment will include any known risks
+                related to the incomplete or inadequate implementation of the NIST SP 800-53 controls selected for this system.
+                This document will be updated after certification testing to include any findings or observations by the
+                independent assessment team.  Data collected during this assessment may be used to support higher level risk
+                assessments at the mission/business or organization level.
+                </i>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.RARPurpose, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2">
+                Purpose
+            </label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.RARPurpose, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.RARPurpose, "", new { @class = "text-danger" })
+                <br />
+                State why this assessment is being conducted.  State the circumstances that prompted this assessment; is this 
+                assessment an initial or subsequent?  
+                <br />
+                <br />
+                <b>Example:</b> <i>This initial risk assessment was conducted to document areas where the selection and 
+                implementation of RMF controls may have left residual risk.  This will provide security control assessors and 
+                authorizing officials an upfront risk profile.</i>
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.RARAssumptions, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.RARAssumptions, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.RARAssumptions, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
+
+        @*<div class="form-group">
             @Html.LabelFor(model => model.RARConstraints, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.RARConstraints, new { htmlAttributes = new { @class = "form-control" } })
@@ -62,21 +96,58 @@
                 @Html.EditorFor(model => model.RARPeriodicReviewsFrequency, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.RARPeriodicReviewsFrequency, "", new { @class = "text-danger" })
             </div>
-        </div>
+        </div>*@
 
         <div class="form-group">
-            @Html.LabelFor(model => model.RARApproach, htmlAttributes: new { @class = "control-label col-md-2" })
+            @*@Html.LabelFor(model => model.RARApproach, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2">
+                Approach
+            </label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.RARApproach, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.RARApproach, "", new { @class = "text-danger" })
+                @*@Html.EditorFor(model => model.RARApproach, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.RARApproach, "", new { @class = "text-danger" })*@
+
+                @{
+                    List<SelectListItem> listApproaches = new List<SelectListItem>();
+                    listApproaches.Add(new SelectListItem
+                    {
+                        Text = "Qualitative",
+                        Value = "Qualitative"
+                    });
+
+                    listApproaches.Add(new SelectListItem
+                    {
+                        Text = "Quantitative",
+                        Value = "Quantitative"
+                    });
+                }
+
+                @Html.DropDownListFor(model => model.RARApproach, listApproaches, new { @class = "form-control" })
+
+
+                <br />
+                Select the Risk Assessment Approach.  A quantitative approach scores the different aspects of the assessment numerically 
+                whereas a qualitative approach describes the severity of a given item in terms of <i>Very High, High, Moderate, Low,</i> 
+                and <i>Very Low</i>.
+                <br />
+                <br />
+                <b>Example Output:</b> <i>This initial risk assessment was conducted using the guidelines outlined in the NIST SP 800-30, 
+                Guide for Conducting Risk Assessments.  A <b>qualitative</b> approach will be utilized for this assessment.  Risk will be 
+                determined based on a threat event, the likelihood of that threat event occurring, known system vulnerabilities, 
+                mitigating factors, and consequences/impact to mission.</i>
+
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <a href="@Url.Action("Facility", "RARGenerator")" class="btn btn-default">&laquo; Back</a>
+                @*<a href="@Url.Action("Facility", "RARGenerator")" class="btn btn-default">&laquo; Back</a>
                 <input type="submit" value="Submit" class="btn btn-default" />
-                <a href="@Url.Action("System", "RARGenerator")" class="btn btn-default">Next &raquo;</a>
+                <a href="@Url.Action("System", "RARGenerator")" class="btn btn-default">Next &raquo;</a>*@
+                <input type="submit" value="<< Back" formaction="@Url.Action("RARScope", "RARGenerator", new { direction="Facility"})" class="btn btn-default" />
+                <input type="submit" value="Submit" formaction="@Url.Action("RARScope", "RARGenerator", new { direction=""})" class="btn btn-default" />
+                <input type="submit" value="Next >>" formaction="@Url.Action("RARScope", "RARGenerator", new { direction="System"})" class="btn btn-default" />
+
             </div>
         </div>
     </div>

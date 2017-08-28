@@ -1,13 +1,13 @@
-﻿@using RARGenerator.Models;
+﻿
 
-@*@{ 
-    var viewModel = new SessionViewModel();
+@{ 
+    var viewModel = new RARGenerator.Models.SessionViewModel();
     // Check and see if something is in memory
-    //if (HttpContext.Current.Session["RAR"] != null)
-    //{
-    //    viewModel = (SessionViewModel)HttpContext.Current.Session["RAR"];
-    //}
-}*@
+    if (HttpContext.Current.Session["RAR"] != null)
+    {
+        viewModel = (RARGenerator.Models.SessionViewModel)HttpContext.Current.Session["RAR"];
+    }
+}
 
 
 <p>
