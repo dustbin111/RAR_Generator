@@ -102,16 +102,22 @@ namespace RARGenerator.Controllers
         }
 
         // GET: RARGenerator/GenerateRAR
-        [WordDocument]
+        [WordDocument(DefaultFilename = "SOME_STATIC_STRING")]
         public ActionResult GenerateRAR()
         {
-            return View();
+            var viewModel = GetViewModel();
+
+            ViewBag.WordDocumentFilename = viewModel.Facility.FacilityCAGE;
+
+            return View(viewModel);
         }
 
         // GET: RARGenerator/PreviewRAR
         public ActionResult PreviewRAR()
         {
-            return View("GenerateRAR", "_RARGeneratorLayout", null);
+            var viewModel = GetViewModel();
+
+            return View("GenerateRAR", "_RARGeneratorLayout", viewModel);
         }
 
         // GET: RARGenerator/RARNavigation

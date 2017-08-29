@@ -20,5 +20,14 @@ namespace RARGenerator.Models
         //[Required]
         public string FacilityState { get; set; }
         public string FacilityZIP { get; set; }
+
+        public bool FacilityComplete()
+        {
+            return !string.IsNullOrEmpty(FacilityCAGE)
+                   && !string.IsNullOrEmpty(FacilityName);
+            //&& !string.IsNullOrEmpty(FacilityAddress1) 
+            //&& !string.IsNullOrEmpty(FacilityAddress2) 
+            //&& !string.IsNullOrEmpty(FacilityZIP);
+        }
     }
 }

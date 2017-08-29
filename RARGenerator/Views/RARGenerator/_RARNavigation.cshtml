@@ -14,9 +14,9 @@
     NAVIGATION:
 </p>
 <ul>
-    <li>@Html.ActionLink("Warning Notification", "WarningBanner", "RARGenerator") @*@viewModel.WarningBanner.WarningBannerConsent()*@</li>
+    <li class="@(viewModel.WarningBanner.WarningBannerConsent()? "good": "bad")">@Html.ActionLink("Warning Notification", "WarningBanner", "RARGenerator")</li>
     <li>@Html.ActionLink("Start", "NewOrUpload", "RARGenerator") </li>
-    <li>@Html.ActionLink("Facility", "Facility", "RARGenerator") </li>
+    <li class="@(viewModel.Facility.FacilityComplete()? "good": "bad")">@Html.ActionLink("Facility", "Facility", "RARGenerator") </li>
     <li>@Html.ActionLink("Scope", "RARScope", "RARGenerator") </li>
     <li>@Html.ActionLink("Asset", "System", "RARGenerator") </li>
     <li>@Html.ActionLink("Threats", "Threats", "RARGenerator") </li>

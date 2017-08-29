@@ -1,4 +1,4 @@
-﻿@*@model RARGenerator.Models.Facility*@
+﻿@model RARGenerator.Models.SessionViewModel
 
 @{
     ViewBag.Title = "GenerateRAR";
@@ -164,15 +164,13 @@ ul
     <div class=WordSection1>
 
         <p class=MsoNormal>
-            <span style='font-size:12.0pt;line-height:115%;font-family:
-"Times New Roman",serif'>
+            <span style='font-size:12.0pt;line-height:115%;font-family: "Times New Roman",serif'>
                 <br clear=all>
             </span>
         </p>
 
         <p class=MsoNormal>
-            <span style='font-size:12.0pt;line-height:115%;font-family:
-"Times New Roman",serif'>&nbsp;</span>
+            <span style='font-size:12.0pt;line-height:115%;font-family:"Times New Roman",serif'>&nbsp;</span>
         </p>
 
         <p class=MsoNormal align=center style='text-align:center'>
@@ -185,13 +183,12 @@ ul
         </p>
 
         <p class=MsoNormal>
-            <span style='font-size:12.0pt;line-height:115%;font-family:
-"Times New Roman",serif'>&nbsp;</span>
+            <span style='font-size:12.0pt;line-height:115%;font-family:"Times New Roman",serif'>&nbsp;</span>
         </p>
 
         <p class=MsoNormal align=center style='text-align:center'>
-            @*<span style='font-size:18.0pt;line-height:115%;font-family:"Times New Roman",serif'>@Model.Facility.FacilityName</span>*@
-            <span style='font-size:18.0pt;line-height:115%;font-family:"Times New Roman",serif'>&lt;ORGANIZATION&gt;</span>
+            <span style='font-size:18.0pt;line-height:115%;font-family:"Times New Roman",serif'>@Model.Facility.FacilityName</span>
+            @*<span style='font-size:18.0pt;line-height:115%;font-family:"Times New Roman",serif'>&lt;ORGANIZATION&gt;</span>*@
         </p>
 
         <p class=MsoNormal align=center style='text-align:center'>
@@ -200,40 +197,34 @@ ul
 
         <p class=MsoNormal align=center style='text-align:center'>
             <i>
-                <span style='font-size:18.0pt;line-height:115%;font-family:"Times New Roman",serif'>
-                    &lt;SYSTEM
-                    NAME&gt;
-                </span>
+                <span style='font-size:18.0pt;line-height:115%;font-family:"Times New Roman",serif'>@Model.Facility.FacilityCAGE</span>
+                @*<span style='font-size:18.0pt;line-height:115%;font-family:"Times New Roman",serif'>&lt;SYSTEMNAME&gt;</span>*@
             </i>
         </p>
 
         <p class=MsoNormal>
-            <span style='font-size:12.0pt;line-height:115%;font-family:
-"Times New Roman",serif'>&nbsp;</span>
+            <span style='font-size:12.0pt;line-height:115%;font-family:"Times New Roman",serif'>&nbsp;</span>
         </p>
 
         <p class=MsoNormal align=center style='text-align:center'>
-            <span style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif'>&lt;DATE&gt;</span>
+            <span style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif'>@DateTime.Now.ToShortDateString()</span>
+            @*<span style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif'>&lt;DATE&gt;</span>*@
         </p>
 
         <p class=MsoNormal>
-            <span style='font-size:14.0pt;line-height:115%;font-family:
-"Times New Roman",serif'>&nbsp;</span>
+            <span style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif'>&nbsp;</span>
         </p>
 
         <p class=MsoNormal>
-            <span style='font-size:14.0pt;line-height:115%;font-family:
-"Times New Roman",serif'>&nbsp;</span>
+            <span style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif'>&nbsp;</span>
         </p>
 
         <p class=MsoNormal>
-            <span style='font-size:14.0pt;line-height:115%;font-family:
-"Times New Roman",serif'>&nbsp;</span>
+            <span style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif'>&nbsp;</span>
         </p>
 
         <p class=MsoNormal>
-            <span style='font-size:14.0pt;line-height:115%;font-family:
-"Times New Roman",serif'>Record of Changes:</span>
+            <span style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif'>Record of Changes:</span>
         </p>
 
         <table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
