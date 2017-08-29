@@ -22,3 +22,29 @@ select,
 textarea {
     max-width: 280px;
 }
+
+li.good, li.bad {
+    display: block;
+}
+
+li.good:before {
+    /*Using a Bootstrap glyphicon as the bullet point*/
+    content: "\e013";
+    font-family: 'Glyphicons Halflings';
+    font-size: 9px;
+    float: left;
+    margin-top: 4px;
+    margin-left: -17px;
+    color: #008000;
+}
+
+li.bad:before {
+    /*Using a Bootstrap glyphicon as the bullet point*/
+    content: "\e014";
+    font-family: 'Glyphicons Halflings';
+    font-size: 9px;
+    float: left;
+    margin-top: 4px;
+    margin-left: -17px;
+    color: #8b0000;
+}
