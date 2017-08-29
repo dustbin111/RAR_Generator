@@ -25,6 +25,7 @@ namespace RARGenerator.Utilities
         public override void OnResultExecuted(ResultExecutedContext filterContext)
         {
             var filename = filterContext.Controller.ViewBag.WordDocumentFilename;
+            //var filename = "@Models.Facility.FacilityCAGE() - Risk Assessment Report";
             filename = filename ?? DefaultFilename ?? "Document";
 
             filterContext.HttpContext.Response.AppendHeader("Content-Disposition", string.Format("filename={0}.doc", filename));
