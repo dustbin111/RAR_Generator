@@ -1,4 +1,5 @@
-﻿
+﻿@using RARGenerator.Utilities
+
 
 @{ 
     var viewModel = new RARGenerator.Models.SessionViewModel();
@@ -7,22 +8,42 @@
     {
         viewModel = (RARGenerator.Models.SessionViewModel)HttpContext.Current.Session["RAR"];
     }
+
+    var currentAction = ViewContext.RouteData.Values["action"].ToString();
 }
 
 
 <p>
     NAVIGATION:
 </p>
-<ul>
-    <li class="@(viewModel.WarningBanner.WarningBannerConsent()? "good": "bad")">@Html.ActionLink("Warning Notification", "WarningBanner", "RARGenerator")</li>
-    <li>@Html.ActionLink("Start", "NewOrUpload", "RARGenerator") </li>
-    <li class="@(viewModel.Facility.FacilityComplete()? "good": "bad")">@Html.ActionLink("Facility", "Facility", "RARGenerator") </li>
-    <li>@Html.ActionLink("Scope", "RARScope", "RARGenerator") </li>
-    <li>@Html.ActionLink("Asset", "System", "RARGenerator") </li>
-    <li>@Html.ActionLink("Threats", "Threats", "RARGenerator") </li>
-    <li>Risks</li>
-    <li>@Html.ActionLink("Review & Analysis", "ReviewAnalysis", "RARGenerator") </li>
-    <li>@Html.ActionLink("Generate RAR", "GenerateRAR", "RARGenerator") </li>
+<ul class="nav nav-pills nav-stacked">
+    <li class="@(Extensions.GetNavigationClasses(viewModel.WarningBanner.WarningBannerConsent(), false, currentAction, "WarningBanner"))">
+        @Html.ActionLink("Warning Notification", "WarningBanner", "RARGenerator")
+    </li>
+    <li class="@(Extensions.GetNavigationClasses(false, false, currentAction, "NewOrUpload"))">
+        @Html.ActionLink("Start", "NewOrUpload", "RARGenerator")
+    </li>
+    <li class="@(Extensions.GetNavigationClasses(viewModel.Facility.FacilityComplete(), false, currentAction, "Facility"))">
+        @Html.ActionLink("Facility", "Facility", "RARGenerator")
+    </li>
+    <li class="@(Extensions.GetNavigationClasses(false, false, currentAction, "RARScope"))">
+        @Html.ActionLink("Scope", "RARScope", "RARGenerator")
+    </li>
+    <li class="@(Extensions.GetNavigationClasses(false, false, currentAction, "System"))">
+        @Html.ActionLink("Asset", "System", "RARGenerator")
+    </li>
+    <li class="@(Extensions.GetNavigationClasses(false, false, currentAction, "Threats"))">
+        @Html.ActionLink("Threats", "Threats", "RARGenerator")
+    </li>
+    <li class="@(Extensions.GetNavigationClasses(false, false, currentAction, "Risks"))">
+        <a href="#">Risks</a>
+    </li>
+    <li class="@(Extensions.GetNavigationClasses(false, false, currentAction, "ReviewAnalysis"))">
+        @Html.ActionLink("Review & Analysis", "ReviewAnalysis", "RARGenerator")
+    </li>
+    <li class="@(Extensions.GetNavigationClasses(false, false, currentAction, "GenerateRAR"))">
+        <a href="@Url.Action("GenerateRAR", "RARGenerator")">Generate RAR &nbsp; <i class="glyphicon glyphicon-download-alt"></i></a>
+    </li>
 </ul>
 
 

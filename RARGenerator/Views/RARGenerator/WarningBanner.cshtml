@@ -22,7 +22,7 @@
                 <div class="checkbox">
                     @Html.EditorFor(model => model.WarningGovt)
                     @Html.ValidationMessageFor(model => model.WarningGovt, "", new { @class = "text-danger" })
-                    <p>This is NOT a government system.</p>
+                    <label for="WarningGovt">This is NOT a government system.</label>
                 </div>
             </div>
         </div>
@@ -33,7 +33,7 @@
                 <div class="checkbox">
                     @Html.EditorFor(model => model.WarningAccreditted)
                     @Html.ValidationMessageFor(model => model.WarningAccreditted, "", new { @class = "text-danger" })
-                    <p>This system is NOT acrredited by anyone.</p>
+                    <label for="WarningAccreditted">This system is NOT acrredited by anyone.</label>
                 </div>
             </div>
         </div>
@@ -44,7 +44,7 @@
                 <div class="checkbox">
                     @Html.EditorFor(model => model.WarningClassified)
                     @Html.ValidationMessageFor(model => model.WarningClassified, "", new { @class = "text-danger" })
-                    <p>UNDER NO CIRCUMSTANCES SHOULD CLASSIFIED INFORMATION BE PROCESSED THROUGH THIS SYSTEM</p>
+                    <label for="WarningClassified">UNDER NO CIRCUMSTANCES SHOULD CLASSIFIED INFORMATION BE PROCESSED THROUGH THIS SYSTEM</label>
                 </div>
             </div>
         </div>
@@ -55,7 +55,7 @@
                 <div class="checkbox">
                     @Html.EditorFor(model => model.WarningStored)
                     @Html.ValidationMessageFor(model => model.WarningStored, "", new { @class = "text-danger" })
-                    <p>Information input into this system is NOT stored on this system; any information you want to save must be saved locally to your computer.</p>
+                    <label for="WarningStored">Information input into this system is NOT stored on this system; any information you want to save must be saved locally to your computer.</label>
                 </div>
             </div>
         </div>
@@ -66,7 +66,7 @@
                 <div class="checkbox">
                     @Html.EditorFor(model => model.WarningUse)
                     @Html.ValidationMessageFor(model => model.WarningUse, "", new { @class = "text-danger" })
-                    <p>Use of the RAR Generator is USE AT YOUR OWN RISK.</p>
+                    <label for="WarningUse">Use of the RAR Generator is USE AT YOUR OWN RISK.</label>
                 </div>
             </div>
         </div>
